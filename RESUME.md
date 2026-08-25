@@ -12,13 +12,48 @@ That's the URL to put on your resume — your name, your domain, no third party 
 (`github.com/clammyface/cost-of-10-minutes`) goes next to it so recruiters can see the
 code. Both links below are already filled in.
 
-These describe the **completed** case study. The data work behind every number is already done and in the
-repo; the remaining documents land over the next 2–3 days. Paste them now — just finish the project before
-you interview on it.
+All 15 requirement documents are written and live in `docs/`, the analysis is reproducible from
+`src/`, and the site is published. Every number below traces to a file in this repo — see
+[Claim → source](#claim--source-interviewers-do-ask).
 
 ---
 
-## Recommended — three bullets
+## Recommended — six bullets (full project entry)
+
+> **Data-Driven 0→1 Product Strategy — Indian Quick Commerce (Blinkit)**
+> [Live case study](https://clammyface.github.io/cost-of-10-minutes/) · [GitHub](https://github.com/clammyface/cost-of-10-minutes)
+>
+> - Built a **40,671-review evidence base** across four Indian quick-commerce apps (2018–2026) by scraping
+>   and deduplicating **58,200 Google Play reviews** in Python, then engineering a **14-theme complaint
+>   taxonomy** over **11,729 negative reviews** — replacing survey-and-persona guesswork with a corpus that
+>   every downstream decision cites.
+> - Identified **fee and pricing opacity as the #1 user problem — 20.2% of all negative sentiment**, ahead of
+>   customer support (14.0%), product quality (9.6%), and refunds (9.5%); validated the classifier against
+>   **40 hand-labelled reviews** and reported its recall limits explicitly instead of overclaiming precision.
+> - Selected the MVP with a **frequency × severity × business-impact model** (fees 12.0 vs. refunds 11.81 — a
+>   deliberate call between two near-tied problems) and **RICE scoring across 15 candidate solutions**,
+>   overriding RICE's own top-ranked pick where the framework ignored contribution-margin risk.
+> - Authored the complete 0→1 spec — **4 evidence-backed personas**, JTBD map, four-app competitive teardown,
+>   and a **PRD with 4 measurable goals** — paired with a high-fidelity clickable prototype of the proposed
+>   fee-transparency flow.
+> - Defined the measurement system end to end: North Star of **Weekly Orders per Active Customer (WOPAC)**,
+>   **6 guardrail metrics with hard stop conditions**, a full event-tracking spec, and quarterly OKRs
+>   targeting **fee complaint share 20.2% → ≤15%** and **fee-related support contacts −25%**.
+> - Designed the experiment and launch plan: **AOV as primary metric at +3.3% MDE (₹518 → ₹535)**,
+>   **n ≈ 8,800 orders/arm at 80% power, α = 0.05**, Bonferroni correction across six guardrails, and a
+>   phased **5% → 25% → 50% → 100% rollout** with pre-registered halt criteria.
+
+**Where the link goes:** on the project title line, as above — recruiters click the header, not mid-bullet.
+If your format allows only one link, keep the Pages URL and drop the GitHub one; the site links back to the
+repo.
+
+**Verb discipline:** bullets 5–6 describe a *designed* system, not a shipped result. "Defined", "Designed",
+"targeting" are load-bearing — the 3.3% is the **MDE**, not an outcome. See
+[Two things to say correctly in an interview](#two-things-to-say-correctly-in-an-interview).
+
+---
+
+## Three bullets
 
 > **Data-Driven 0→1 Product Strategy: Quick Commerce (Blinkit)** · [github.com/…](https://github.com/clammyface/cost-of-10-minutes)
 >

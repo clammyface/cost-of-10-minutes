@@ -1,0 +1,15 @@
+app,theme,label,negative_reviews,hits,share_of_negative,severity,business_impact,freq_norm,priority_score
+blinkit,pricing_charges,Prices and added fees feel unfair or opaque,11729,2363,0.2015,3,4,1.0,12.0
+blinkit,refund_issues,"Refunds delayed, denied, or untraceable",11729,1117,0.0952,5,5,0.47245657568238214,11.81
+blinkit,customer_support,Support is unreachable or unhelpful,11729,1638,0.1397,4,4,0.6933002481389577,11.09
+blinkit,item_quality,"Product arrives spoiled, expired, or damaged",11729,1123,0.0957,5,4,0.4749379652605458,9.5
+blinkit,missing_wrong_items,Items missing from order or wrong item sent,11729,740,0.0631,5,5,0.31315136476426797,7.83
+blinkit,delivery_delay,Delivery is late / ETA not met,11729,713,0.0608,4,5,0.3017369727047146,6.03
+blinkit,delivery_partner,Delivery partner behaviour or fake delivery marking,11729,1073,0.0915,4,3,0.4540942928039702,5.45
+blinkit,returns_replacement,Returns and replacements are hard or refused,11729,761,0.0649,4,4,0.32208436724565753,5.15
+blinkit,cancellation,Orders cancelled unexpectedly or cancellation blocked,11729,675,0.0575,4,4,0.2853598014888337,4.57
+blinkit,stock_availability,Wanted items are unavailable,11729,741,0.0632,3,4,0.31364764267990075,3.76
+blinkit,payment_issues,Payment fails or money is debited without an order,11729,330,0.0281,5,5,0.13945409429280395,3.49
+blinkit,app_bugs,"App crashes, errors, or fails to load",11729,363,0.0309,3,3,0.15334987593052107,1.38
+blinkit,packaging,Packaging quality,11729,363,0.0309,2,2,0.15334987593052107,0.61
+blinkit,membership,Membership / subscription friction,11729,26,0.0022,3,3,0.010918114143920596,0.1

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Cart — Interactive Prototype</title>
+<style>
+  :root{
+    --bg:#f4f4f2; --surface:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --muted:#8a8880;
+    --line:#e6e5e0; --brand:#2a78d6; --warn:#eb6834; --good:#1baf7a; --yellow:#eda100;
+    --shadow:0 1px 3px rgba(0,0,0,.07),0 6px 20px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#111110; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#8a8880;
+      --line:#333331; --brand:#3987e5; --warn:#d95926; --good:#199e70; --yellow:#c98500;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#111110; --surface:#1a1a19; --ink:#fff; --ink2:#c3c2b7; --muted:#8a8880;
+    --line:#333331; --brand:#3987e5; --warn:#d95926; --good:#199e70; --yellow:#c98500;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--ink2);margin:0 0 28px;font-size:14.5px;max-width:70ch}
+  .toggle{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+  .toggle button{background:var(--surface);border:1px solid var(--line);color:var(--ink2);
+    padding:9px 16px;border-radius:99px;cursor:pointer;font-size:14px;font-weight:600;
+    font-family:inherit;transition:.15s}
+  .toggle button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+  .stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start}
+  .col h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+    margin:0 0 10px;font-weight:700}
+  .phone{background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);overflow:hidden}
+  .bar{padding:13px 16px;border-bottom:1px solid var(--line);font-weight:700;font-size:15px;
+    display:flex;justify-content:space-between;align-items:center}
+  .bar .eta{font-size:12px;color:var(--good);font-weight:600}
+  .items{padding:6px 16px}
+  .item{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);
+    font-size:14px;gap:12px}
+  .item:last-child{border-bottom:0}
+  .item .n{color:var(--ink)}
+  .item .q{color:var(--muted);font-size:12.5px}
+  .fees{padding:12px 16px;border-top:1px solid var(--line);background:transparent}
+  .row{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;color:var(--ink2)}
+  .row.total{border-top:1px solid var(--line);margin-top:8px;padding-top:11px;
+    font-weight:800;font-size:16.5px;color:var(--ink)}
+  .row .lbl{display:flex;align-items:center;gap:6px}
+  .info{width:15px;height:15px;border-radius:99px;border:1px solid var(--muted);color:var(--muted);
+    font-size:10px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+    font-weight:700;flex:none}
+  .hidden-note{padding:14px 16px;border-top:1px solid var(--line);color:var(--muted);
+    font-size:13px;font-style:italic}
+  .nudge{margin:12px 16px;padding:13px 14px;border-radius:12px;
+    background:color-mix(in srgb,var(--brand) 9%,transparent);
+    border:1px solid color-mix(in srgb,var(--brand) 30%,transparent)}
+  .nudge .t{font-weight:700;font-size:14px;margin-bottom:9px}
+  .track{height:7px;border-radius:99px;background:color-mix(in srgb,var(--brand) 18%,transparent);
+    overflow:hidden}
+  .fill{height:100%;background:var(--brand);border-radius:99px;transition:width .35s ease}
+  .track-lbl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink2);margin-top:6px}
+  .sug{padding:4px 16px 14px}
+  .sug h3{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);
+    margin:10px 0 9px;font-weight:700}
+  .chip{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:8px;
+    cursor:pointer;background:transparent;width:100%;font-family:inherit;font-size:13.5px;
+    color:var(--ink);text-align:left;transition:.15s}
+  .chip:hover{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 6%,transparent)}
+  .chip .why{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+  .chip .add{color:var(--brand);font-weight:700;font-size:13px;flex:none}
+  .cta{margin:0 16px 16px;padding:14px;border-radius:12px;background:var(--brand);color:#fff;
+    text-align:center;font-weight:700;font-size:15px;cursor:pointer;border:0;width:calc(100% - 32px);
+    font-family:inherit}
+  .won{margin:12px 16px;padding:12px 14px;border-radius:12px;
+    background:color-mix(in srgb,var(--good) 12%,transparent);
+    border:1px solid color-mix(in srgb,var(--good) 35%,transparent);
+    color:var(--ink);font-size:13.5px;font-weight:600}
+  .shock{color:var(--warn);font-weight:700}
+  .note{margin-top:14px;padding:13px 15px;border-radius:11px;background:var(--surface);
+    border:1px solid var(--line);font-size:13px;color:var(--ink2)}
+  .note b{color:var(--ink)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;font-size:12.5px;color:var(--muted)}
+  .tip{position:fixed;background:var(--ink);color:var(--bg);padding:7px 11px;border-radius:8px;
+    font-size:12.5px;max-width:250px;pointer-events:none;opacity:0;transition:.12s;z-index:9}
+  .tip.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Smart Cart — interactive prototype</h1>
+  <p class="sub">The same cart, before and after. Toggle the cart size to see how the feature behaves at
+  different distances from the free-delivery threshold — including the case where it deliberately does
+  nothing. Tap a suggestion on the right to watch the threshold clear.</p>
+
+  <div class="toggle" role="group" aria-label="Cart scenario">
+    <button data-s="near" aria-pressed="true">Near threshold (₹152)</button>
+    <button data-s="far" aria-pressed="false">Far below (₹78)</button>
+    <button data-s="above" aria-pressed="false">Already qualifies (₹340)</button>
+  </div>
+
+  <div class="stage">
+    <div class="col">
+      <h2>Current — control</h2>
+      <div class="phone">
+        <div class="bar"><span>Your cart</span><span class="eta">10 min</span></div>
+        <div class="items" id="itemsA"></div>
+        <div class="hidden-note" id="noteA">Fees are calculated at checkout.</div>
+        <button class="cta">Proceed to checkout</button>
+      </div>
+      <div class="note" id="noteBoxA"></div>
+    </div>
+
+    <div class="col">
+      <h2>Smart Cart — treatment</h2>
+      <div class="phone">
+        <div class="bar"><span>Your cart</span><span class="eta">10 min</span></div>
+        <div class="items" id="itemsB"></div>
+        <div class="fees" id="feesB"></div>
+        <div id="nudgeB"></div>
+        <div class="sug" id="sugB"></div>
+        <button class="cta">Proceed to checkout</button>
+      </div>
+      <div class="note" id="noteBoxB"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span>FR1 — live landed cost</span><span>FR2 — threshold progress</span>
+    <span>FR3 — reorder-ranked suggestions</span><span>FR4 — checkout never blocked</span>
+  </div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const THRESHOLD = 199, DELIVERY = 30, HANDLING = 4, SMALLCART = 20;
+
+const SCENARIOS = {
+  near: {
+    items:[["Amul Gold Milk 1L","2 × ₹36",72],["Britannia Brown Bread","1 × ₹45",45],["Bananas 6 pcs","1 × ₹35",35]],
+    sug:[["Amul Butter 100g","You reorder this every 2 weeks",62],
+         ["Eggs, 6 pcs","Bought 3 times last month",48],
+         ["Tata Salt 1kg","Viewed yesterday",28]]
+  },
+  far: {
+    items:[["Maggi 2-Minute Noodles","1 × ₹28",28],["Dairy Milk Silk","1 × ₹50",50]],
+    sug:[]
+  },
+  above: {
+    items:[["Aashirvaad Atta 5kg","1 × ₹255",255],["Amul Gold Milk 1L","1 × ₹36",36],["Tomatoes 1kg","1 × ₹49",49]],
+    sug:[]
+  }
+};
+
+let state = "near", added = [];
+
+const rupee = n => "₹" + n.toFixed(0);
+const sum = s => SCENARIOS[s].items.reduce((a,i)=>a+i[2],0) + added.reduce((a,i)=>a+i[2],0);
+
+function feeStack(sub){
+  const f = [];
+  if (sub < THRESHOLD){
+    f.push(["Delivery fee", DELIVERY, "Charged on orders below ₹199."]);
+    f.push(["Small cart fee", SMALLCART, "Applies to orders below ₹199."]);
+  }
+  f.push(["Handling fee", HANDLING, "Covers picking and packing at the dark store."]);
+  return f;
+}
+
+function render(){
+  const sc = SCENARIOS[state];
+  const rows = [...sc.items, ...added];
+  const sub = sum(state);
+  const fees = feeStack(sub);
+  const feeTotal = fees.reduce((a,f)=>a+f[1],0);
+  const gap = Math.max(0, THRESHOLD - sub);
+  const qualifies = sub >= THRESHOLD;
+
+  const itemHTML = rows.map(i=>
+    `<div class="item"><span><span class="n">${i[0]}</span><br><span class="q">${i[1]}</span></span>
+     <span>${rupee(i[2])}</span></div>`).join("");
+  itemsA.innerHTML = itemHTML; itemsB.innerHTML = itemHTML;
+
+  // Control: item total only
+  noteA.innerHTML = `Item total <b style="color:var(--ink)">${rupee(sub)}</b> — fees calculated at checkout.`;
+  noteBoxA.innerHTML = qualifies
+    ? `<b>No surprise here</b> — this cart already clears ₹199, so control and treatment charge the same. The difference is only that control never said so.`
+    : `<b>The complaint, reproduced.</b> The user sees ${rupee(sub)} and will be charged <span class="shock">${rupee(sub+feeTotal)}</span> at checkout — after the basket is built. This is JTBD-1 failing: 20.2% of negative reviews.`;
+
+  // Treatment: full landed cost
+  feesB.innerHTML =
+    `<div class="row"><span>Item total</span><span>${rupee(sub)}</span></div>` +
+    fees.map(f=>`<div class="row"><span class="lbl">${f[0]}
+      <span class="info" data-tip="${f[2]}">i</span></span><span>${rupee(f[1])}</span></div>`).join("") +
+    `<div class="row total"><span>Total</span><span>${rupee(sub+feeTotal)}</span></div>`;
+
+  // Nudge
+  if (qualifies){
+    nudgeB.innerHTML = `<div class="won">✓ Free delivery unlocked — you saved ₹${DELIVERY}</div>`;
+  } else if (gap > 300){
+    nudgeB.innerHTML = `<div class="hidden-note" style="border:0;padding:12px 16px">
+      Free delivery starts at ₹199 — ${rupee(gap)} away.</div>`;
+  } else {
+    const pct = Math.min(100, (sub/THRESHOLD)*100);
+    nudgeB.innerHTML = `<div class="nudge">
+      <div class="t">Add ${rupee(gap)} more to save ₹${DELIVERY+SMALLCART} in fees</div>
+      <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="track-lbl"><span>${rupee(sub)}</span><span>₹${THRESHOLD}</span></div></div>`;
+  }
+
+  // Suggestions
+  const showSug = !qualifies && gap <= 300 && sc.sug.length;
+  sugB.innerHTML = showSug
+    ? `<h3>Things you usually buy</h3>` + sc.sug
+        .filter(s=>!added.some(a=>a[0]===s[0]))
+        .map((s,i)=>`<button class="chip" data-i="${i}">
+          <span>${s[0]}<span class="why">${s[1]}</span></span>
+          <span class="add">+ ${rupee(s[2])}</span></button>`).join("")
+    : "";
+
+  noteBoxB.innerHTML = qualifies
+    ? `<b>FR2 hides itself.</b> The cart already qualifies, so no nudge appears — only the cost preview. This is the segment that receives transparency <i>without</i> agency, and <a href="../docs/15_post_launch.md">15</a> models it as the one that gets worse (+2.1pp abandonment).`
+    : gap > 300
+    ? `<b>The feature deliberately does nothing.</b> The gap is ${rupee(gap)} — suggesting the user add that much would read as a demand, not a nudge (PRD §11.7). Cost is still shown; no manipulation.`
+    : `<b>FR1 + FR2 + FR3 together.</b> The user sees the real total <b>${rupee(sub+feeTotal)}</b>, sees they are ${rupee(gap)} from saving ₹${DELIVERY+SMALLCART}, and gets suggestions from their own reorder history — never margin-ranked (PRD §11.6).`;
+}
+
+document.querySelectorAll(".toggle button").forEach(b=>{
+  b.onclick = () => {
+    document.querySelectorAll(".toggle button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true");
+    state = b.dataset.s; added = []; render();
+  };
+});
+
+document.addEventListener("click", e=>{
+  const chip = e.target.closest(".chip");
+  if (!chip) return;
+  const s = SCENARIOS[state].sug.filter(s=>!added.some(a=>a[0]===s[0]))[+chip.dataset.i];
+  if (s) { added.push([s[0], "1 × " + rupee(s[2]), s[2]]); render(); }
+});
+
+const tip = document.getElementById("tip");
+document.addEventListener("mouseover", e=>{
+  const t = e.target.closest("[data-tip]");
+  if (!t) return;
+  tip.textContent = t.dataset.tip; tip.classList.add("on");
+  const r = t.getBoundingClientRect();
+  tip.style.left = Math.min(r.left, innerWidth-260) + "px";
+  tip.style.top = (r.bottom + 8) + "px";
+});
+document.addEventListener("mouseout", e=>{
+  if (e.target.closest("[data-tip]")) tip.classList.remove("on");
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Raw scrape output — ~48 MB of JSON, fully regenerable with `python src/scrape_reviews.py`.
+# data/processed/ IS committed: it is what every document cites, and a reviewer
+# should be able to check a number without re-running a 10-minute scrape.
+data/raw/*.json
+data/raw/*.txt
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/

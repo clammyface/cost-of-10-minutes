@@ -1,0 +1,9 @@
+pandas>=2.2
+matplotlib>=3.8
+google-play-scraper>=1.2.7
+
+# Deliberately NOT scikit-learn. TF-IDF here is implemented directly in
+# src/analyze.py (~30 lines) because scipy's compiled extensions are blocked by
+# Application Control policy on some managed Windows machines, and a 40k-row
+# corpus does not need a sparse-matrix library to rank terms. Keeping the
+# dependency list this small means the pipeline runs anywhere Python does.

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pip install google-play-scraper pandas matplotlib scikit-learn requests 2>&1)"
+    ]
+  }
+}

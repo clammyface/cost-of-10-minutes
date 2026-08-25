@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cost of Ten Minutes — Quick Commerce Product Case Study</title>
+<meta name="description" content="A product case study built on 40,671 mined Play Store reviews, finding that Blinkit's top user complaint is fee opacity — not slow delivery.">
+<meta property="og:title" content="The Cost of Ten Minutes">
+<meta property="og:description" content="A product case study built on 40,671 mined Play Store reviews. Blinkit's top complaint isn't slow delivery — it's the price of speed.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129534;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --paper:#f6f7f8; --card:#ffffff; --ink:#12141a; --ink2:#4a4f5c; --ink3:#767d8c;
+  --line:#e2e5ea; --line2:#eef0f3;
+  --accent:#2a78d6; --accent-soft:#e8f0fb;
+  --fee:#c77f00; --fee-soft:#fbf2df;
+  --good:#1baf7a;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101216; --card:#171a20; --ink:#f2f4f7; --ink2:#b3bac7; --ink3:#828a99;
+    --line:#272b34; --line2:#1f232a;
+    --accent:#3987e5; --accent-soft:#16233a;
+    --fee:#d9a441; --fee-soft:#2a2313;
+    --good:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101216; --card:#171a20; --ink:#f2f4f7; --ink2:#b3bac7; --ink3:#828a99;
+  --line:#272b34; --line2:#1f232a;
+  --accent:#3987e5; --accent-soft:#16233a;
+  --fee:#d9a441; --fee-soft:#2a2313;
+  --good:#199e70;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(38px,6.2vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(26px,3.4vw,36px);line-height:1.12;font-weight:700;letter-spacing:-.022em}
+h3{font-size:19px;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 1.05em}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+strong{font-weight:600;color:var(--ink)}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);
+  display:flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+section{padding:76px 0;border-top:1px solid var(--line2)}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 76px;border-top:0}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:26px;font-weight:500;
+}
+.hero h1 em{font-style:normal;color:var(--fee)}
+.lede{font-size:19.5px;line-height:1.6;color:var(--ink2);max-width:60ch;margin-top:26px}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:44px;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);
+}
+.hero-meta div{flex:1 1 150px;padding:18px 20px;border-right:1px solid var(--line)}
+.hero-meta div:last-child{border-right:0}
+.hero-meta .n{
+  font-family:"IBM Plex Mono",monospace;font-size:23px;font-weight:600;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;display:block;
+}
+.hero-meta .l{font-size:12.5px;color:var(--ink3);margin-top:3px;display:block;line-height:1.35}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-block;padding:11px 20px;border-radius:9px;font-size:14.5px;font-weight:600;
+  text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--card);
+  transition:border-color .15s;
+}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ---------- receipt ---------- */
+.receipt-row{display:grid;grid-template-columns:1fr 320px;gap:44px;align-items:start}
+.receipt{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;
+  padding:24px 22px 26px;font-family:"IBM Plex Mono",monospace;font-size:13.5px;
+  font-variant-numeric:tabular-nums;box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.05);
+  position:relative;
+}
+.receipt::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px;
+  background:repeating-linear-gradient(135deg,var(--card) 0 7px,transparent 7px 14px);
+}
+.receipt .rh{
+  text-align:center;padding-bottom:14px;margin-bottom:14px;border-bottom:1px dashed var(--line);
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+}
+.li{display:flex;justify-content:space-between;gap:8px;padding:4px 0;color:var(--ink2)}
+.li .d{flex:1;border-bottom:1px dotted var(--line);margin-bottom:5px}
+.li.fee{color:var(--fee);font-weight:500}
+.li.tot{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px;
+  font-size:17px;font-weight:600;color:var(--ink)}
+.li.tot .amt{color:var(--fee)}
+.receipt .stamp{
+  margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+  font-size:11.5px;color:var(--ink3);text-align:center;line-height:1.5;
+}
+.quote{
+  border-left:2px solid var(--fee);padding:2px 0 2px 18px;margin:0 0 22px;
+  font-size:16px;color:var(--ink2);font-style:italic;
+}
+.quote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink3);margin-top:8px}
+
+/* ---------- bars ---------- */
+.bars{display:flex;flex-direction:column;gap:9px;margin:30px 0 14px}
+.bar{display:grid;grid-template-columns:minmax(150px,232px) 1fr auto;gap:14px;align-items:center;font-size:14px}
+.bar .lab{color:var(--ink2);text-align:right;line-height:1.3}
+.bar .track{height:19px;background:var(--line2);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);border-radius:3px}
+.bar.hi .fill{background:var(--fee)}
+.bar.hi .lab{color:var(--ink);font-weight:600}
+.bar .v{font-family:"IBM Plex Mono",monospace;font-size:13px;font-variant-numeric:tabular-nums;
+  color:var(--ink2);min-width:46px}
+.bar.hi .v{color:var(--fee);font-weight:600}
+.axis{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink3);
+  margin-left:246px;padding-top:6px;border-top:1px solid var(--line2)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{margin-bottom:9px}
+.card p{font-size:14.5px;color:var(--ink2);margin:0}
+.card .big{
+  font-family:"IBM Plex Mono",monospace;font-size:30px;font-weight:600;
+  letter-spacing:-.025em;display:block;margin-bottom:6px;font-variant-numeric:tabular-nums;
+}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:26px 0 8px}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line2)}
+th{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink3);font-weight:500;border-bottom:1px solid var(--line)}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+tr.mark td{background:var(--fee-soft)}
+tr.mark td:first-child{font-weight:600}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ---------- docs ---------- */
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 30px;margin-top:26px}
+.doc{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line2);align-items:baseline}
+.doc .no{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);
+  min-width:22px;font-variant-numeric:tabular-nums}
+.doc .t{font-weight:600;font-size:15px;line-height:1.35}
+.doc a{text-decoration:none;color:var(--ink)}
+.doc a:hover{color:var(--accent)}
+.doc .s{font-size:13px;color:var(--ink3);display:block;font-weight:400;margin-top:2px;line-height:1.4}
+
+.callout{
+  background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
+  border-radius:12px;padding:24px 26px;margin:30px 0;
+}
+.callout.warn{background:var(--fee-soft);border-color:color-mix(in srgb,var(--fee) 30%,transparent)}
+.callout p:last-child{margin-bottom:0}
+.callout h3{margin-bottom:10px}
+
+.flow{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:2.05;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:24px 26px;margin-top:28px;overflow-x:auto;white-space:pre;color:var(--ink2);
+}
+.flow b{color:var(--ink);font-weight:600}
+
+footer{padding:56px 0 76px;border-top:1px solid var(--line2);color:var(--ink3);font-size:13.5px}
+
+@media (max-width:760px){
+  .receipt-row{grid-template-columns:1fr;gap:30px}
+  .bar{grid-template-columns:1fr;gap:5px}
+  .bar .lab{text-align:left}
+  .axis{margin-left:0}
+  .hero-meta div{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Product Case Study · Indian Quick Commerce</div>
+  <h1>Blinkit's biggest complaint isn't slow delivery. It's <em>the price of speed.</em></h1>
+  <p class="lede">
+    I mined 40,671 real Play Store reviews across four Indian quick-commerce apps. Fees and pricing
+    opacity drive <strong>20.2% of every negative Blinkit review</strong> — more than three times the rate
+    of late delivery, which ranks ninth. This is what I found, and what I'd build about it.
+  </p>
+  <div class="links">
+    <a class="btn primary" href="prototype/index.html">Try the prototype</a>
+    <a class="btn" href="docs/02_user_research.md">Read the research</a>
+    <a class="btn" href="SUMMARY.md">Full summary</a>
+  </div>
+  <div class="hero-meta">
+    <div><span class="n">40,671</span><span class="l">reviews analysed</span></div>
+    <div><span class="n">11,729</span><span class="l">negative Blinkit reviews</span></div>
+    <div><span class="n">2018–26</span><span class="l">date range</span></div>
+    <div><span class="n">14</span><span class="l">complaint themes</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">01 · The moment it breaks</div>
+  <div class="receipt-row">
+    <div>
+      <h2>A ₹98 basket costs ₹152 — and you find out last</h2>
+      <p style="margin-top:18px;color:var(--ink2)">
+        Users itemise the fees accurately in their own complaints. The information was never hidden from
+        them. What they object to is <strong>when</strong> it arrives: after three minutes of shopping, at
+        the one moment they can no longer do anything but cancel.
+      </p>
+      <blockquote class="quote">
+        deferent extra charges applied only on delivery. Like product charges only 98 But Delivery Charges
+        30 Handling Charges 5 Small cart Fee 20
+        <cite>— Blinkit review, 1★, August 2026</cite>
+      </blockquote>
+      <p style="color:var(--ink2)">
+        The grievance is <strong>sequence, not amount</strong>. That distinction is the whole case study:
+        it means the problem is solvable by product design rather than by cutting prices — which matters
+        enormously, because cutting prices is exactly what Blinkit cannot afford to do.
+      </p>
+    </div>
+
+    <div class="receipt" role="img" aria-label="Itemised receipt showing a 98 rupee basket totalling 152 rupees after fees">
+      <div class="rh">Your order · 10 min</div>
+      <div class="li"><span>Groceries</span><span class="d"></span><span>₹98</span></div>
+      <div class="li fee"><span>Delivery fee</span><span class="d"></span><span>₹30</span></div>
+      <div class="li fee"><span>Small cart fee</span><span class="d"></span><span>₹20</span></div>
+      <div class="li fee"><span>Handling fee</span><span class="d"></span><span>₹4</span></div>
+      <div class="li tot"><span>Total</span><span class="d"></span><span class="amt">₹152</span></div>
+      <div class="stamp">55% of this bill is fees.<br>Revealed at checkout.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">02 · What 11,729 negative reviews say</div>
+  <h2>Fees lead by a wide margin. Lateness ranks ninth.</h2>
+  <p style="margin-top:16px;color:var(--ink2);max-width:62ch">
+    Each bar is the share of negative Blinkit reviews mentioning that theme. Reviews can carry more than
+    one, so these don't sum to 100%.
+  </p>
+
+  <div class="bars">
+    <div class="bar hi"><span class="lab">Prices &amp; added fees feel unfair</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">20.2%</span></div>
+    <div class="bar"><span class="lab">Support unreachable</span><span class="track"><span class="fill" style="width:69.3%"></span></span><span class="v">14.0%</span></div>
+    <div class="bar"><span class="lab">Product spoiled or damaged</span><span class="track"><span class="fill" style="width:47.5%"></span></span><span class="v">9.6%</span></div>
+    <div class="bar"><span class="lab">Refunds delayed or denied</span><span class="track"><span class="fill" style="width:47.0%"></span></span><span class="v">9.5%</span></div>
+    <div class="bar"><span class="lab">Rider behaviour / fake delivery</span><span class="track"><span class="fill" style="width:45.5%"></span></span><span class="v">9.2%</span></div>
+    <div class="bar"><span class="lab">Returns refused</span><span class="track"><span class="fill" style="width:32.2%"></span></span><span class="v">6.5%</span></div>
+    <div class="bar"><span class="lab">Items unavailable</span><span class="track"><span class="fill" style="width:31.2%"></span></span><span class="v">6.3%</span></div>
+    <div class="bar"><span class="lab">Items missing or wrong</span><span class="track"><span class="fill" style="width:31.2%"></span></span><span class="v">6.3%</span></div>
+    <div class="bar"><span class="lab">Delivery late / ETA missed</span><span class="track"><span class="fill" style="width:30.2%"></span></span><span class="v">6.1%</span></div>
+    <div class="bar"><span class="lab">Orders cancelled unexpectedly</span><span class="track"><span class="fill" style="width:28.7%"></span></span><span class="v">5.8%</span></div>
+  </div>
+  <div class="axis">Share of 11,729 negative (1–3★) Blinkit reviews</div>
+
+  <div class="callout">
+    <h3>Blinkit solved the problem it was founded to solve</h3>
+    <p style="color:var(--ink2)">
+      A company built entirely on ten-minute delivery now sees lateness as its <strong>ninth</strong>
+      complaint. Speed has become table stakes across the category. The competitive frontier moved to what
+      the speed costs — and nobody's product has followed it there.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">03 · Three findings that changed the strategy</div>
+  <h2>The people complaining about fees are your good customers</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span class="big" style="color:var(--fee)">25.8%</span>
+      <h3>Fee complaints rise as anger falls</h3>
+      <p>25.8% of 3★ reviews mention fees, versus just 14.1% of 1★. The angriest users are dealing with
+      rotten produce and vanished refunds. Fee complaints come from the <em>mildly</em> annoyed.</p>
+    </div>
+    <div class="card">
+      <span class="big" style="color:var(--accent)">½×</span>
+      <h3>They mention nothing else</h3>
+      <p>Fee complainers cite every other problem at roughly <em>half</em> the base rate. This isn't part
+      of an "everything is broken" grievance — it's a standalone objection from users whose experience is
+      otherwise fine.</p>
+    </div>
+    <div class="card">
+      <span class="big" style="color:var(--good)">11.0%</span>
+      <h3>Zepto proved it's fixable</h3>
+      <p>Zepto scrapped all handling and surge fees. Its fee complaint rate is 11.0% against Blinkit's
+      20.2% — same cities, same category, identical sampling method.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:30px;color:var(--ink2);max-width:64ch">
+    Together these reframe the target. The fee complainer is <strong>not a churning hater — they're a
+    habituated, profitable customer with exactly one objection</strong>, and it's an objection a competitor
+    is actively courting them over. That makes them the most winnable segment in the dataset.
+  </p>
+</section>
+
+<section>
+  <div class="eyebrow">04 · The strategic vice</div>
+  <h2>So just cut the fees? No.</h2>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Blinkit, Q1 FY27</th><th class="num">Value</th><th>Why it constrains the answer</th></tr></thead>
+      <tbody>
+        <tr class="mark"><td>Adjusted EBITDA margin</td><td class="num">0.6% of NOV</td><td>Fee removal doesn't dent profit — it inverts it</td></tr>
+        <tr><td>Net AOV</td><td class="num">₹518 ▼</td><td>Down from ₹521. Baskets shrinking against fixed per-order cost</td></tr>
+        <tr><td>Adjusted EBITDA</td><td class="num">+₹102 Cr</td><td>Fifth consecutive quarter of improvement — hard-won</td></tr>
+        <tr><td>Dark stores</td><td class="num">2,443</td><td>300+ cities, ~3.6M orders/day</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:22px;color:var(--ink2);max-width:64ch">
+    Zepto can give fees away because it's private, loss-making, and buying share with investor capital.
+    Blinkit is listed, newly profitable, and judged quarterly on a margin trajectory it spent five quarters
+    building. <strong>It cannot win a fee-elimination war and shouldn't enter one.</strong>
+  </p>
+
+  <div class="callout warn">
+    <h3>The problem, restated</h3>
+    <p style="color:var(--ink2);font-size:17px">
+      Make fees feel <strong>fair, predictable, and controllable</strong> — without removing them.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">05 · The answer</div>
+  <h2>Smart Cart</h2>
+  <p style="margin-top:16px;color:var(--ink2);max-width:62ch">
+    Chosen by RICE across 15 candidate solutions. Three components that only work together — and the
+    reason they ship as one feature is the most important design decision in the case study.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>See the real total</h3>
+      <p>Live landed cost, itemised, from the first item added — not at checkout. Fixes the sequence.</p>
+    </div>
+    <div class="card">
+      <h3>See the gap</h3>
+      <p>"Add ₹47 more to save ₹50 in fees," with a progress bar. Both numbers stated, always.</p>
+    </div>
+    <div class="card">
+      <h3>Close it usefully</h3>
+      <p>Suggestions ranked from the user's own reorder history — never by margin, which would confirm the
+      opportunism users already resent.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Why not ship the transparency alone?</h3>
+    <p style="color:var(--ink2)">
+      Because showing someone a higher total with no way to act on it just <strong>delivers bad news
+      sooner</strong>. That's pure abandonment risk with none of the upside. The modelled launch bears it
+      out: carts that got transparency <em>with</em> a nudge improved by 0.4pp, while carts that got
+      transparency alone <strong>worsened by 2.1pp</strong>.
+    </p>
+  </div>
+
+  <p style="color:var(--ink2);max-width:64ch">
+    The commercial logic is what makes this worth building: helping a user clear a fee threshold means a
+    bigger basket. <strong>The user's problem and the AOV problem have the same solution</strong> — so
+    nothing has to be traded away, and not a single fee changes.
+  </p>
+
+  <p style="margin-top:24px"><a class="btn primary" href="prototype/index.html">Try the interactive prototype</a></p>
+</section>
+
+<section>
+  <div class="eyebrow">06 · The deliverable</div>
+  <h2>Fifteen documents, one evidence chain</h2>
+  <div class="docs">
+    <div class="doc"><span class="no">01</span><span class="t"><a href="docs/01_product_market.md">Product &amp; Market</a><span class="s">Business model, unit economics, competitor matrix</span></span></div>
+    <div class="doc"><span class="no">02</span><span class="t"><a href="docs/02_user_research.md">User Research</a><span class="s">40,671 reviews, taxonomy, validation, limitations</span></span></div>
+    <div class="doc"><span class="no">03</span><span class="t"><a href="docs/03_personas.md">Personas</a><span class="s">Four personas, each sized from the corpus</span></span></div>
+    <div class="doc"><span class="no">04</span><span class="t"><a href="docs/04_jtbd.md">Jobs-to-be-Done</a><span class="s">Ten JTBD statements with source reviews</span></span></div>
+    <div class="doc"><span class="no">05</span><span class="t"><a href="docs/05_problem_definition.md">Problem Definition</a><span class="s">Severity-weighted ranking, problem statement, HMW</span></span></div>
+    <div class="doc"><span class="no">06</span><span class="t"><a href="docs/06_strategy_okrs.md">Strategy &amp; OKRs</a><span class="s">Vision, strategic objective, three OKRs</span></span></div>
+    <div class="doc"><span class="no">07</span><span class="t"><a href="docs/07_metrics.md">Metrics</a><span class="s">North Star, KPI tree, guardrails, counter-metrics</span></span></div>
+    <div class="doc"><span class="no">08</span><span class="t"><a href="docs/08_competitive_opportunity.md">Competitive &amp; Opportunity</a><span class="s">Gap analysis, opportunity map, positioning</span></span></div>
+    <div class="doc"><span class="no">09</span><span class="t"><a href="docs/09_solution_ideation.md">Solution Ideation</a><span class="s">Fifteen solutions across four mechanisms</span></span></div>
+    <div class="doc"><span class="no">10</span><span class="t"><a href="docs/10_prioritization.md">Prioritization</a><span class="s">RICE, P0/P1/P2, dependencies, risks</span></span></div>
+    <div class="doc"><span class="no">11</span><span class="t"><a href="docs/11_prd.md">PRD</a><span class="s">Requirements, edge cases, acceptance criteria</span></span></div>
+    <div class="doc"><span class="no">12</span><span class="t"><a href="docs/12_ux_prototype.md">UX &amp; Prototype</a><span class="s">Journeys, screen spec, clickable prototype</span></span></div>
+    <div class="doc"><span class="no">13</span><span class="t"><a href="docs/13_experimentation.md">Experimentation</a><span class="s">Hypothesis, A/B design, sample sizing, decision rules</span></span></div>
+    <div class="doc"><span class="no">14</span><span class="t"><a href="docs/14_analytics_launch.md">Analytics &amp; Launch</a><span class="s">Event spec, funnels, cohorts, phased rollout</span></span></div>
+    <div class="doc"><span class="no">15</span><span class="t"><a href="docs/15_post_launch.md">Post-Launch</a><span class="s">Results vs criteria, failures, next hypothesis</span></span></div>
+  </div>
+
+  <div class="flow"><b>RESEARCH</b>    40,671 reviews · 14-theme taxonomy · validated          [02]
+    ↓
+<b>PROBLEM</b>     Fees 20.2% of negative reviews · ranked #1              [05]
+    ↓
+<b>STRATEGY</b>    Fix perception, not price — 0.6% margin forbids cuts    [06]
+    ↓
+<b>PRIORITISE</b>  15 solutions · RICE · fee removal scored #1, rejected   [10]
+    ↓
+<b>BUILD</b>       Smart Cart PRD + clickable prototype               [11][12]
+    ↓
+<b>MEASURE</b>     Pre-registered A/B · 6 guardrails · 5→25→50→100%   [13][14]
+    ↓
+<b>LEARN</b>       Transparency without agency harms · roadmap changed     [15]
+    ↓
+<b>ITERATE</b> ────┘</div>
+</section>
+
+<section>
+  <div class="eyebrow">07 · What this study can't tell you</div>
+  <h2>The limitations, stated up front</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>The corpus is deliberately skewed</h3>
+      <p>Equal quota per star rating, so 1–3★ are heavily over-represented <em>on purpose</em> — the
+      taxonomy needs negative text to cluster on. Blinkit's real average is 4.58★ across 9.0M ratings.
+      Every figure here is a share of <em>negative reviews</em>, never of users.</p>
+    </div>
+    <div class="card">
+      <h3>Every share is a lower bound</h3>
+      <p>Hand-labelling 40 reviews found 68% received at least one correct theme, with 32% carrying a real
+      complaint no rule caught. Precision is good; recall is the weakness. Because misses spread across
+      themes, the <em>ranking</em> is sturdier than the levels.</p>
+    </div>
+    <div class="card">
+      <h3>Android only</h3>
+      <p>Apple's public review feed now returns zero entries for every app tested; Reddit's JSON endpoints
+      return 403 without OAuth. Both were attempted and both failed — documented rather than quietly
+      dropped.</p>
+    </div>
+    <div class="card">
+      <h3>The launch results are modelled</h3>
+      <p>Smart Cart was never shipped — this is a portfolio study, so document 15's figures are
+      projections from published benchmarks, labelled throughout. <strong>Everything upstream of it is
+      real and verifiable.</strong></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:64ch">
+    Built from public data: Google Play reviews retrieved 25 August 2026, Eternal and Swiggy quarterly
+    results, and published market-share estimates. Full pipeline reproducible in three commands.
+    Blinkit, Zepto, Swiggy Instamart and bigbasket are trademarks of their respective owners; this
+    analysis is independent and unaffiliated.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

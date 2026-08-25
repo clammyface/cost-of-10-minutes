@@ -1,0 +1,95 @@
+PROJECT: Data-Driven 0→1 Product Strategy & Roadmap
+
+1. PRODUCT & MARKET UNDERSTANDING
+
+* Select one real-world product/app.
+* Understand its target market, business model, competitors, positioning, and key user segments.
+* Create a competitor comparison matrix.
+
+2. USER RESEARCH USING EXISTING DATA
+
+* Use publicly available data such as Google Play reviews, Reddit discussions, app reviews, or customer feedback datasets.
+* Analyze thousands of real user reviews instead of conducting surveys/interviews.
+* Identify recurring complaints, needs, and user expectations.
+
+3. USER SEGMENTATION & PERSONAS
+
+* Segment users based on their behavior, needs, ratings, or problems.
+* Create 3–4 evidence-based user personas.
+* Define each persona's goals, pain points, behaviors, and needs.
+
+4. JOBS-TO-BE-DONE (JTBD)
+
+* Convert user complaints into Jobs-to-be-Done.
+* Identify what users are actually trying to accomplish.
+* Example: "When my order fails, I want to know exactly when I will receive my refund so that I don't have to contact support."
+
+5. PROBLEM DISCOVERY & DEFINITION
+
+* Identify the most important user problems from the dataset.
+* Analyze problem frequency, severity, affected users, and business impact.
+* Create a clear problem statement and "How Might We" question.
+
+6. PRODUCT STRATEGY & GOALS
+
+* Define the product vision and strategic objective.
+* Connect the user problem with a business objective.
+* Define product goals and OKRs.
+
+7. PRODUCT METRICS
+
+* Define the North Star Metric.
+* Define supporting KPIs and guardrail metrics.
+* Example: retention, activation, conversion, churn, support tickets, satisfaction, repeat usage.
+
+8. COMPETITIVE & OPPORTUNITY ANALYSIS
+
+* Analyze how competitors solve the identified problem.
+* Identify gaps in existing solutions.
+* Create an opportunity map showing user needs versus existing solutions.
+
+9. SOLUTION IDEATION
+
+* Generate 10–15 possible solutions for the identified problem.
+* Compare different approaches rather than immediately selecting one feature.
+* Identify the expected user and business impact of each solution.
+
+10. FEATURE PRIORITIZATION
+
+* Prioritize solutions using frameworks such as RICE, ICE, MoSCoW, or Value vs Effort.
+* Consider Reach, Impact, Confidence, Effort, strategic importance, dependencies, and risks.
+* Select the features that should become P0/P1/P2.
+
+11. PRD (PRODUCT REQUIREMENTS DOCUMENT)
+
+* Create a complete PRD for the selected MVP feature.
+* Include problem statement, target users, goals, non-goals, user stories, functional requirements, edge cases, dependencies, risks, and success metrics.
+* Define clear acceptance criteria.
+
+12. UX / PRODUCT PROTOTYPE
+
+* Design the user flow and high-fidelity prototype in Figma.
+* Show the current user journey and proposed improved experience.
+* Create the complete flow from entry point to successful task completion.
+
+13. EXPERIMENTATION & A/B TESTING
+
+* Define the product hypothesis.
+* Design a control and treatment experience.
+* Define primary success metrics and guardrail metrics.
+* Specify experiment duration, target users, rollout percentage, and success criteria.
+
+14. PRODUCT ANALYTICS & LAUNCH STRATEGY
+
+* Define the events that need to be tracked.
+* Create funnels, cohorts, and feature-adoption metrics.
+* Design the launch strategy, target audience, messaging, rollout plan, and GTM approach.
+* Use phased rollout such as 5% → 25% → 50% → 100%.
+
+15. POST-LAUNCH ANALYSIS & ITERATION
+
+* Analyze experiment/launch results.
+* Compare actual results against predefined success metrics.
+* Identify what worked, what failed, and why.
+* Convert learnings into the next product hypothesis and roadmap iteration.
+* Demonstrate the complete PM loop: Research → Problem → Strategy → Prioritization → Build → Measure → Learn → Iterate.

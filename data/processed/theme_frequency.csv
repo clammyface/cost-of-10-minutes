@@ -1,0 +1,57 @@
+app,theme,label,negative_reviews,hits,share_of_negative,severity,business_impact
+bigbasket,customer_support,Support is unreachable or unhelpful,4740,844,0.1781,4,4
+bigbasket,cancellation,Orders cancelled unexpectedly or cancellation blocked,4740,593,0.1251,4,4
+bigbasket,refund_issues,"Refunds delayed, denied, or untraceable",4740,503,0.1061,5,5
+bigbasket,stock_availability,Wanted items are unavailable,4740,451,0.0951,3,4
+bigbasket,item_quality,"Product arrives spoiled, expired, or damaged",4740,444,0.0937,5,4
+bigbasket,pricing_charges,Prices and added fees feel unfair or opaque,4740,414,0.0873,3,4
+bigbasket,delivery_partner,Delivery partner behaviour or fake delivery marking,4740,388,0.0819,4,3
+bigbasket,missing_wrong_items,Items missing from order or wrong item sent,4740,386,0.0814,5,5
+bigbasket,payment_issues,Payment fails or money is debited without an order,4740,354,0.0747,5,5
+bigbasket,app_bugs,"App crashes, errors, or fails to load",4740,344,0.0726,3,3
+bigbasket,delivery_delay,Delivery is late / ETA not met,4740,314,0.0662,4,5
+bigbasket,returns_replacement,Returns and replacements are hard or refused,4740,126,0.0266,4,4
+bigbasket,membership,Membership / subscription friction,4740,92,0.0194,3,3
+bigbasket,packaging,Packaging quality,4740,71,0.015,2,2
+blinkit,pricing_charges,Prices and added fees feel unfair or opaque,11729,2363,0.2015,3,4
+blinkit,customer_support,Support is unreachable or unhelpful,11729,1638,0.1397,4,4
+blinkit,item_quality,"Product arrives spoiled, expired, or damaged",11729,1123,0.0957,5,4
+blinkit,refund_issues,"Refunds delayed, denied, or untraceable",11729,1117,0.0952,5,5
+blinkit,delivery_partner,Delivery partner behaviour or fake delivery marking,11729,1073,0.0915,4,3
+blinkit,returns_replacement,Returns and replacements are hard or refused,11729,761,0.0649,4,4
+blinkit,stock_availability,Wanted items are unavailable,11729,741,0.0632,3,4
+blinkit,missing_wrong_items,Items missing from order or wrong item sent,11729,740,0.0631,5,5
+blinkit,delivery_delay,Delivery is late / ETA not met,11729,713,0.0608,4,5
+blinkit,cancellation,Orders cancelled unexpectedly or cancellation blocked,11729,675,0.0575,4,4
+blinkit,app_bugs,"App crashes, errors, or fails to load",11729,363,0.0309,3,3
+blinkit,packaging,Packaging quality,11729,363,0.0309,2,2
+blinkit,payment_issues,Payment fails or money is debited without an order,11729,330,0.0281,5,5
+blinkit,membership,Membership / subscription friction,11729,26,0.0022,3,3
+instamart,customer_support,Support is unreachable or unhelpful,4397,1035,0.2354,4,4
+instamart,pricing_charges,Prices and added fees feel unfair or opaque,4397,827,0.1881,3,4
+instamart,cancellation,Orders cancelled unexpectedly or cancellation blocked,4397,749,0.1703,4,4
+instamart,delivery_partner,Delivery partner behaviour or fake delivery marking,4397,590,0.1342,4,3
+instamart,refund_issues,"Refunds delayed, denied, or untraceable",4397,571,0.1299,5,5
+instamart,delivery_delay,Delivery is late / ETA not met,4397,517,0.1176,4,5
+instamart,missing_wrong_items,Items missing from order or wrong item sent,4397,364,0.0828,5,5
+instamart,app_bugs,"App crashes, errors, or fails to load",4397,201,0.0457,3,3
+instamart,item_quality,"Product arrives spoiled, expired, or damaged",4397,192,0.0437,5,4
+instamart,stock_availability,Wanted items are unavailable,4397,155,0.0353,3,4
+instamart,membership,Membership / subscription friction,4397,93,0.0212,3,3
+instamart,returns_replacement,Returns and replacements are hard or refused,4397,83,0.0189,4,4
+instamart,packaging,Packaging quality,4397,79,0.018,2,2
+instamart,payment_issues,Payment fails or money is debited without an order,4397,74,0.0168,5,5
+zepto,customer_support,Support is unreachable or unhelpful,4703,1080,0.2296,4,4
+zepto,item_quality,"Product arrives spoiled, expired, or damaged",4703,708,0.1505,5,4
+zepto,refund_issues,"Refunds delayed, denied, or untraceable",4703,598,0.1272,5,5
+zepto,pricing_charges,Prices and added fees feel unfair or opaque,4703,516,0.1097,3,4
+zepto,delivery_partner,Delivery partner behaviour or fake delivery marking,4703,499,0.1061,4,3
+zepto,missing_wrong_items,Items missing from order or wrong item sent,4703,427,0.0908,5,5
+zepto,cancellation,Orders cancelled unexpectedly or cancellation blocked,4703,335,0.0712,4,4
+zepto,returns_replacement,Returns and replacements are hard or refused,4703,306,0.0651,4,4
+zepto,delivery_delay,Delivery is late / ETA not met,4703,289,0.0615,4,5
+zepto,stock_availability,Wanted items are unavailable,4703,248,0.0527,3,4
+zepto,app_bugs,"App crashes, errors, or fails to load",4703,228,0.0485,3,3
+zepto,payment_issues,Payment fails or money is debited without an order,4703,160,0.034,5,5
+zepto,packaging,Packaging quality,4703,131,0.0279,2,2
+zepto,membership,Membership / subscription friction,4703,65,0.0138,3,3

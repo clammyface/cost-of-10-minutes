@@ -1,0 +1,38 @@
+{
+  "total_reviews": 40671,
+  "negative_reviews": 25569,
+  "untagged_share_of_negative": 0.3289,
+  "mean_themes_per_negative": 1.11,
+  "top_themes_blinkit": [
+    {
+      "theme": "pricing_charges",
+      "share_of_negative": 0.2015,
+      "priority_score": 12.0
+    },
+    {
+      "theme": "refund_issues",
+      "share_of_negative": 0.0952,
+      "priority_score": 11.81
+    },
+    {
+      "theme": "customer_support",
+      "share_of_negative": 0.1397,
+      "priority_score": 11.09
+    },
+    {
+      "theme": "item_quality",
+      "share_of_negative": 0.0957,
+      "priority_score": 9.5
+    },
+    {
+      "theme": "missing_wrong_items",
+      "share_of_negative": 0.0631,
+      "priority_score": 7.83
+    },
+    {
+      "theme": "delivery_delay",
+      "share_of_negative": 0.0608,
+      "priority_score": 6.03
+    }
+  ]
+}

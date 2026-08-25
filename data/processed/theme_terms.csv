@@ -1,0 +1,194 @@
+theme,term,tfidf
+delivery_delay,late,0.29963
+delivery_delay,delayed,0.14402
+delivery_delay,delivery,0.12336
+delivery_delay,late delivery,0.09873
+delivery_delay,delay,0.06778
+delivery_delay,delivery late,0.06068
+delivery_delay,service,0.03211
+delivery_delay,minutes,0.03073
+delivery_delay,takes,0.0268
+delivery_delay,delays,0.02662
+delivery_delay,delivery delayed,0.02463
+delivery_delay,delayed delivery,0.02029
+refund_issues,refund,0.12656
+refund_issues,money,0.03296
+refund_issues,product,0.02604
+refund_issues,deducted,0.02516
+refund_issues,received,0.02412
+refund_issues,customer,0.02328
+refund_issues,payment,0.02212
+refund_issues,didn,0.02065
+refund_issues,service,0.01856
+refund_issues,amount,0.01821
+refund_issues,items,0.01789
+refund_issues,support,0.01779
+item_quality,quality,0.05542
+item_quality,damaged,0.05241
+item_quality,expired,0.05238
+item_quality,product,0.0463
+item_quality,products,0.037
+item_quality,items,0.03347
+item_quality,rotten,0.02977
+item_quality,poor,0.0254
+item_quality,poor quality,0.02432
+item_quality,fresh,0.02393
+item_quality,melted,0.02218
+item_quality,delivered,0.02024
+missing_wrong_items,missing,0.09004
+missing_wrong_items,delivered,0.06432
+missing_wrong_items,items,0.0538
+missing_wrong_items,product,0.03923
+missing_wrong_items,item,0.03849
+missing_wrong_items,wrong,0.03804
+missing_wrong_items,deliver,0.03116
+missing_wrong_items,items missing,0.03025
+missing_wrong_items,wrong product,0.02855
+missing_wrong_items,customer,0.02477
+missing_wrong_items,refund,0.02349
+missing_wrong_items,delivery,0.02216
+pricing_charges,charges,0.14972
+pricing_charges,charge,0.08284
+pricing_charges,delivery,0.07071
+pricing_charges,high,0.0667
+pricing_charges,expensive,0.06613
+pricing_charges,delivery charges,0.05995
+pricing_charges,handling,0.05356
+pricing_charges,extra,0.04572
+pricing_charges,costly,0.03948
+pricing_charges,surge,0.03261
+pricing_charges,price,0.03196
+pricing_charges,handling charges,0.03129
+payment_issues,payment,0.12816
+payment_issues,upi,0.10157
+payment_issues,option,0.08769
+payment_issues,cash,0.067
+payment_issues,cash delivery,0.06434
+payment_issues,wallet,0.05968
+payment_issues,available,0.05756
+payment_issues,method,0.04728
+payment_issues,cod,0.04721
+payment_issues,money,0.04533
+payment_issues,payment method,0.04339
+payment_issues,delivery,0.04085
+returns_replacement,return,0.08094
+returns_replacement,replacement,0.05271
+returns_replacement,product,0.04942
+returns_replacement,policy,0.04044
+returns_replacement,replace,0.03899
+returns_replacement,exchange,0.03746
+returns_replacement,return policy,0.03367
+returns_replacement,refund,0.02962
+returns_replacement,customer,0.02597
+returns_replacement,item,0.024
+returns_replacement,support,0.02181
+returns_replacement,option,0.02029
+app_bugs,working,0.09019
+app_bugs,glitch,0.05284
+app_bugs,stuck,0.03647
+app_bugs,payment,0.03279
+app_bugs,work,0.02942
+app_bugs,error,0.02799
+app_bugs,money,0.02372
+app_bugs,support,0.02183
+app_bugs,working properly,0.02183
+app_bugs,product,0.02077
+app_bugs,customer,0.01957
+app_bugs,properly,0.01902
+customer_support,customer,0.0909
+customer_support,support,0.05955
+customer_support,customer support,0.0464
+customer_support,service,0.0425
+customer_support,customer service,0.04023
+customer_support,customer care,0.03603
+customer_support,care,0.03589
+customer_support,refund,0.02201
+customer_support,product,0.02184
+customer_support,complaint,0.01816
+customer_support,experience,0.01807
+customer_support,issue,0.01777
+delivery_partner,delivery,0.0988
+delivery_partner,delivery partner,0.05566
+delivery_partner,partner,0.05536
+delivery_partner,rude,0.05053
+delivery_partner,delivery boy,0.04964
+delivery_partner,boy,0.04937
+delivery_partner,person,0.02965
+delivery_partner,delivery person,0.02868
+delivery_partner,behaviour,0.02431
+delivery_partner,location,0.02308
+delivery_partner,customer,0.01918
+delivery_partner,service,0.01695
+stock_availability,available,0.14889
+stock_availability,stock,0.07148
+stock_availability,unavailable,0.06752
+stock_availability,delivery available,0.03909
+stock_availability,delivery,0.03768
+stock_availability,items,0.03656
+stock_availability,cash,0.0342
+stock_availability,cash delivery,0.03226
+stock_availability,cod,0.02659
+stock_availability,products,0.02298
+stock_availability,cod available,0.02071
+stock_availability,items stock,0.02005
+cancellation,cancel,0.15717
+cancellation,cancelled,0.08618
+cancellation,cancellation,0.03998
+cancellation,option,0.03673
+cancellation,delivery,0.03101
+cancellation,refund,0.02799
+cancellation,service,0.0193
+cancellation,cancel option,0.01909
+cancellation,customer,0.01898
+cancellation,cancelling,0.01826
+cancellation,mistake,0.01815
+cancellation,payment,0.01703
+membership,membership,0.13956
+membership,grofers,0.04554
+membership,delivery,0.03875
+membership,prime,0.03457
+membership,monthly,0.03259
+membership,free,0.0309
+membership,free delivery,0.02769
+membership,products,0.026
+membership,product,0.02561
+membership,available,0.02538
+membership,items,0.02337
+membership,problem,0.02263
+packaging,packaging,0.16856
+packaging,package,0.06274
+packaging,packed,0.0298
+packaging,product,0.0295
+packaging,poor,0.02931
+packaging,items,0.02884
+packaging,delivery,0.02724
+packaging,bag,0.02402
+packaging,products,0.02363
+packaging,torn,0.02285
+packaging,packaging poor,0.02229
+packaging,service,0.01962
+__UNTAGGED__,service,0.06917
+__UNTAGGED__,delivery,0.05113
+__UNTAGGED__,experience,0.04902
+__UNTAGGED__,fast,0.02417
+__UNTAGGED__,price,0.02372
+__UNTAGGED__,products,0.02207
+__UNTAGGED__,high,0.02165
+__UNTAGGED__,product,0.02101
+__UNTAGGED__,first,0.02078
+__UNTAGGED__,slow,0.0199
+__UNTAGGED__,hai,0.01971
+__UNTAGGED__,items,0.01914
+__UNTAGGED__,location,0.01387
+__UNTAGGED__,minutes,0.01372
+__UNTAGGED__,poor,0.01369
+__UNTAGGED__,discount,0.01344
+__UNTAGGED__,better,0.01323
+__UNTAGGED__,prices,0.0127
+__UNTAGGED__,offers,0.01265
+__UNTAGGED__,quality,0.01237
+__UNTAGGED__,deliver,0.01221
+__UNTAGGED__,improve,0.01212
+__UNTAGGED__,cash,0.01196
+__UNTAGGED__,payment,0.01157
+__UNTAGGED__,taking,0.01106

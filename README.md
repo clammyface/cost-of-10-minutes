@@ -5,11 +5,14 @@
 No surveys. No invented personas. Every problem, persona, and priority in this repository traces back to
 something a real user actually wrote.
 
-**▶ [Read the case study](index.html)** · **[Try the prototype](prototype/index.html)**
+### 🔗 Live site — **https://clammyface.github.io/cost-of-10-minutes/**
+
+**▶ [Read the case study](https://clammyface.github.io/cost-of-10-minutes/)**
+ · **[Try the prototype](https://clammyface.github.io/cost-of-10-minutes/prototype/)**
  · **[Full summary](SUMMARY.md)**
 
-*(Once GitHub Pages is enabled, the case study lives at
-`https://clammyface.github.io/cost-of-10-minutes/` — see [Publishing the site](#publishing-the-site).)*
+*(Both links serve the `index.html` files in this repo — no build step. If they 404, GitHub Pages
+has not been switched on yet: see [Publishing the site](#publishing-the-site).)*
 
 ---
 

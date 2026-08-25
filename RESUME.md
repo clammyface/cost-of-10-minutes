@@ -2,15 +2,15 @@
 
 ## Your portfolio link
 
-Push the repo to GitHub, turn on **Settings → Pages → main → / (root)**, and you get:
+The repo is pushed. Turn on **Settings → Pages → main → / (root)** and your link is:
 
 ```
-https://<your-username>.github.io/quick-commerce-pm-case-study/
+https://clammyface.github.io/cost-of-10-minutes/
 ```
 
 That's the URL to put on your resume — your name, your domain, no third party in it. The repo link
-(`github.com/<your-username>/quick-commerce-pm-case-study`) goes next to it so recruiters can see the
-code. Replace both placeholders below once you've pushed.
+(`github.com/clammyface/cost-of-10-minutes`) goes next to it so recruiters can see the
+code. Both links below are already filled in.
 
 These describe the **completed** case study. The data work behind every number is already done and in the
 repo; the remaining documents land over the next 2–3 days. Paste them now — just finish the project before
@@ -20,7 +20,7 @@ you interview on it.
 
 ## Recommended — three bullets
 
-> **Data-Driven 0→1 Product Strategy: Quick Commerce (Blinkit)** · [github.com/…](https://github.com/<your-username>/quick-commerce-pm-case-study)
+> **Data-Driven 0→1 Product Strategy: Quick Commerce (Blinkit)** · [github.com/…](https://github.com/clammyface/cost-of-10-minutes)
 >
 > - Replaced assumption-driven requirements with evidence at scale by mining **40,671 Google Play reviews
 >   (2018–2026)** across four Indian quick-commerce apps, engineering a **14-theme complaint taxonomy** over

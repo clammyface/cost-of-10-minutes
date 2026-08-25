@@ -5,7 +5,7 @@ entirely from **40,671 real Google Play reviews** instead of surveys or invented
 requirements in [sarasvati.txt](sarasvati.txt).
 
 **Case study site:** [index.html](index.html) — publishes to
-`https://<your-username>.github.io/<repo-name>/` via GitHub Pages
+`https://clammyface.github.io/cost-of-10-minutes/` via GitHub Pages
 **Prototype:** [prototype/index.html](prototype/index.html)
 **Resume bullets:** [RESUME.md](RESUME.md)
 

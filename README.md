@@ -9,7 +9,7 @@ something a real user actually wrote.
  · **[Full summary](SUMMARY.md)**
 
 *(Once GitHub Pages is enabled, the case study lives at
-`https://<your-username>.github.io/<repo-name>/` — see [Publishing the site](#publishing-the-site).)*
+`https://clammyface.github.io/cost-of-10-minutes/` — see [Publishing the site](#publishing-the-site).)*
 
 ---
 
@@ -135,11 +135,11 @@ The case study is a self-contained `index.html` at the repo root — no build st
 3. **Branch:** `main`, folder `/ (root)` → **Save**
 4. Wait ~60 seconds
 
-Your site is then live at `https://<your-username>.github.io/<repo-name>/`, and the prototype at
-`https://<your-username>.github.io/<repo-name>/prototype/`. Both are yours, on your domain, free.
+Your site is then live at `https://clammyface.github.io/cost-of-10-minutes/`, and the prototype at
+`https://clammyface.github.io/cost-of-10-minutes/prototype/`. Both are yours, on your domain, free.
 
 To use your own domain instead, add a `CNAME` file containing it and point a DNS `CNAME` record at
-`<your-username>.github.io`.
+`clammyface.github.io`.
 
 ---
 
